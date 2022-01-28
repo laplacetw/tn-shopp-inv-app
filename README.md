@@ -20,5 +20,19 @@ const arr = document.getElementsByTagName('script');Object.keys(arr).forEach(key
 
 4. 確認發票資訊<span style="color:red;">正確無誤</span>後點選送出。
 
+## 財政部-電子發票二維碼規格
+[https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1378690240719_0.pdf](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1378690240719_0.pdf)
+
+### 左方二維條碼記載事項:
+1. 發票字軌 (10 位):記錄發票完整十碼號碼。
+2. 發票開立日期 (7 位):記錄發票三碼民國年、二碼月份、二碼日期。
+3. 隨機碼 (4 位):記錄發票上隨機碼四碼。
+4. 銷售額 (8 位):記錄發票上未稅之金額總計八碼，將金額轉換以十六進位方式記載。若營業人銷售系統無法順利將稅項分離計算，則以00000000 記載。
+5. 總計額 (8 位):記錄發票上含稅總金額總計八碼，將金額轉換以十六進位方式記載。
+6. 買方統一編號 (8 位):記錄發票上買受人統一編號，若買受人為一般消費者則以 00000000 記載。
+7. 賣方統一編號 (8 位):記錄發票上賣方統一編號。
+8. 加密驗證資訊 (24 位):將發票字軌十碼及隨機碼四碼以字串方式合併後使用 AES 加密並採用 Base64 編碼轉換。
+- 以上欄位總計 77 碼。下述資訊為接續以上資訊繼續延伸記錄，且每個欄位前皆以間隔符號":"(冒號)區隔各記載事項，若左方二維條碼不敷記載， 則繼續記載於右方二維條碼。
+
 ## About QR Code Scanner
 Power by [vue-qrcode-reader](https://github.com/gruhn/vue-qrcode-reader)
