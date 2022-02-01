@@ -2,20 +2,22 @@
 # 台南購物節發票登錄APP
 
 2022-01-27<br>
-儘管此活動已舉辦多年，但我是去年聽朋友說才知道(￣▽￣)~* 而即使手機載具已經很普及，難免還是有拿電子發票證明聯的時候...且我發現長輩還是習慣索取紙本發票囧rz。<!--more-->據[PTT台南鄉民](https://www.ptt.cc/bbs/Tainan/M.1632065603.A.4B8.html)表示，19年以前是有APP可以直接掃QR Code的，不過後來沒有了。而輸入發票的頁面操作真的會令人煩躁，選完年份選月份、選完月份選日期...全部手動輸入可能好一些。還好現在很難拿到沒有QR Code的紙本發票了，雖然活動已接近尾聲，不過沒意外應該會繼續舉辦下去吧？看著手邊那疊發票，因此就寫了小工具來進行自動掃描與登錄，效率嘛。
+儘管此活動已舉辦多年，但我是去年聽朋友說才知道(￣▽￣)~* 而即使手機載具已經很普及，難免還是有拿電子發票證明聯的時候...且我發現長輩還是習慣索取紙本發票囧rz。<!--more-->據[PTT台南鄉民](https://www.ptt.cc/bbs/Tainan/M.1632065603.A.4B8.html)表示，19年以前是有APP可以直接掃QR Code的，不過後來沒有了。而輸入發票的頁面操作真的會令人煩躁，選完年份選月份、選完月份選日期...全部手動輸入可能好一些。還好現在很難拿到沒有QR Code的紙本發票了，雖然活動已接近尾聲，不過沒意外應該會繼續舉辦下去吧？看著手邊那疊發票，因此就寫了小工具來進行自動掃描與登錄。
 
 ### 使用說明
-1. 在<span style="color:red;">電腦</span>瀏覽器登入[台南購物節官網](https://tainanshopping.tw/news)後，<span style="color:red;">重新整理頁面</span>，按下F12叫出開發人員工具、點選視窗上方的Console頁籤，輸入下方程式碼取得並複製token。
-   ```js
-   const arr = document.getElementsByTagName('script');Object.keys(arr).forEach(key => {if(arr[key].text.includes('window.__NUXT__')) console.log(arr[key].text.match(/(token:").*(?=",email)/)[0].split('"')[1]);});
-   ```
+1. 
    - <span style="color:red;">請妥善保管自己的token</span>，即便它的有效性是短暫的。
    - 每回開始登錄發票前建議重新取得token，失效的token將導致登錄失敗。
-   - Mac使用者如何叫出瀏覽器開發人員工具？按下「command + option + i」。
-   - 如果您的電腦有視訊鏡頭，也可以直接在電腦上操作。個人是把token丟到Line Keep，透過手機登錄發票。
-
-![](https://i.imgur.com/8Zz4K9F.png)
-![](https://i.imgur.com/uxBe9GH.png)
+   - 手機上操作：登入[台南購物節官網](https://tainanshopping.tw/news)後，打開瀏覽器的瀏覽記錄，找到網址為「tainanshopping.tw / oauth...」的瀏覽紀錄，複製該筆瀏覽紀錄的網址。為方便擷取需要的部分，將剛剛複製的網址貼到手機內建的備忘錄或Line Keep，然後將「token=」等號後面的整串文字(token)複製起來。<br><br>
+      ![](https://i.imgur.com/um0AuNU.png)
+   - 電腦上操作：登入[台南購物節官網](https://tainanshopping.tw/news)後，<span style="color:red;">重新整理頁面</span>，按下F12叫出開發人員工具、點選視窗上方的Console頁籤，輸入下方程式碼並將輸出的整串文字(token)複製起來。
+      ```js
+      const arr = document.getElementsByTagName('script');Object.keys(arr).forEach(key => {if(arr[key].text.includes('window.__NUXT__')) console.log(arr[key].text.match(/(token:").*(?=",email)/)[0].split('"')[1]);});
+      ```
+      - Mac使用者如何叫出瀏覽器開發人員工具？按下「command + option + i」。<br><br>
+      ![](https://i.imgur.com/8Zz4K9F.png)
+      ![](https://i.imgur.com/uxBe9GH.png)
+   <br><br>
 
 2. 免安裝，用瀏覽器打開[APP](https://laplacetw.github.io/proj/tainanshopping/)，點選「開始掃描」，請允許APP使用相機。
 
