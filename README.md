@@ -6,20 +6,20 @@
 
 ### 使用說明
 1. 在<span style="color:red;">電腦</span>瀏覽器登入[台南購物節官網](https://tainanshopping.tw/news)後，<span style="color:red;">重新整理頁面</span>，按下F12叫出開發人員工具、點選視窗上方的Console頁籤，輸入下方程式碼取得並複製token。
+   ```js
+   const arr = document.getElementsByTagName('script');Object.keys(arr).forEach(key => {if(arr[key].text.includes('window.__NUXT__')) console.log(arr[key].text.match(/(token:").*(?=",email)/)[0].split('"')[1]);});
+   ```
    - <span style="color:red;">請妥善保管自己的token</span>，即便它的有效性是短暫的。
    - 每回開始登錄發票前建議重新取得token，失效的token將導致登錄失敗。
    - Mac使用者如何叫出瀏覽器開發人員工具？按下「command + option + i」。
    - 如果您的電腦有視訊鏡頭，也可以直接在電腦上操作。個人是把token丟到Line Keep，透過手機登錄發票。
-```js
-const arr = document.getElementsByTagName('script');Object.keys(arr).forEach(key => {if(arr[key].text.includes('window.__NUXT__')) console.log(arr[key].text.match(/(token:").*(?=",email)/)[0].split('"')[1]);});
-```
 
 ![](https://i.imgur.com/8Zz4K9F.png)
 ![](https://i.imgur.com/uxBe9GH.png)
 
-1. 免安裝，用瀏覽器打開[APP](https://laplacetw.github.io/proj/tainanshopping/)，點選「開始掃描」，請允許APP使用相機。
+2. 免安裝，用瀏覽器打開[APP](https://laplacetw.github.io/proj/tainanshopping/)，點選「開始掃描」，請允許APP使用相機。
 
-2. 掃描成功會顯示發票號碼、購買日期等相關資訊，將步驟一所複製的token填入視窗最上方的「Token」欄位。
+3. 掃描成功會顯示發票號碼、購買日期等相關資訊，將步驟一所複製的token填入視窗最上方的「Token」欄位。
    - token只需要填入一次。
 
 ![](https://i.imgur.com/oQSjCMO.jpg)
@@ -28,7 +28,7 @@ const arr = document.getElementsByTagName('script');Object.keys(arr).forEach(key
    - 有可能會讀取到右邊的QR Code，但那不是我們需要的資訊，如要避免請於掃描時遮蔽該QR Code。
 
 ### 免責聲明
-此應用程式僅為方便快速登錄發票而製作的<span style="color:red;">非官方</span>APP，不對任何錯誤或遺漏承擔責任。建議您可以嘗試透過APP登錄一張發票，並前往官網確認有無登錄成功，再決定是否繼續使用。
+此應用程式僅為方便快速登錄發票而製作的<span style="color:red;">非官方</span>APP，無私分享供他人使用，不對任何錯誤或遺漏承擔責任。建議您可以嘗試透過APP登錄一張發票，並前往官網確認有無登錄成功，再決定是否繼續使用。
 
 ## 財政部-電子發票二維碼規格
 [https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1378690240719_0.pdf](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1378690240719_0.pdf)
