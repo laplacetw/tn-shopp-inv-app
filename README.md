@@ -8,15 +8,8 @@
 1. 
    - <span style="color:red;">請妥善保管自己的token</span>，即便它的有效性是短暫的。
    - 每回開始登錄發票前建議重新取得token，失效的token將導致登錄失敗。
-   - 手機上操作：登入[台南購物節官網](https://tainanshopping.tw/news)後，打開瀏覽器的瀏覽記錄，找到網址為「tainanshopping.tw / oauth...」的瀏覽紀錄，複製該筆瀏覽紀錄的網址。為方便擷取需要的部分，將剛剛複製的網址貼到手機內建的備忘錄或Line Keep，然後將「token=」等號後面的整串文字(token)複製起來。<br><br>
+   - 登入[台南購物節官網](https://tainanshopping.tw/news)後，打開瀏覽器的瀏覽記錄，找到網址為「tainanshopping.tw / oauth...」的瀏覽紀錄，複製該筆瀏覽紀錄的網址。為方便擷取需要的部分，將剛剛複製的網址貼到備忘錄或Line Keep，然後將「token=」等號後面的整串文字(token)複製起來。<br><br>
       ![](https://i.imgur.com/um0AuNU.png)
-   - 電腦上操作：登入[台南購物節官網](https://tainanshopping.tw/news)後，<span style="color:red;">重新整理頁面</span>，按下F12叫出開發人員工具、點選視窗上方的Console頁籤，輸入下方程式碼並將輸出的整串文字(token)複製起來。
-      ```js
-      const arr = document.getElementsByTagName('script');Object.keys(arr).forEach(key => {if(arr[key].text.includes('window.__NUXT__')) console.log(arr[key].text.match(/(token:").*(?=",email)/)[0].split('"')[1]);});
-      ```
-      - Mac使用者如何叫出瀏覽器開發人員工具？按下「command + option + i」。<br><br>
-      ![](https://i.imgur.com/8Zz4K9F.png)
-      ![](https://i.imgur.com/uxBe9GH.png)
    <br><br>
 
 2. 免安裝，用瀏覽器打開[APP](https://laplacetw.github.io/proj/tainanshopping/)，點選「開始掃描」，請允許APP使用相機。
